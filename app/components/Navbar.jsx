@@ -7,6 +7,7 @@ import { ThemeContext } from "@/lib/ThemeContext"; // Import ThemeContext
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { info } from "@/lib/item";
 import Logo from "./Logo";
+import Hamburger from "./Hamburger";
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -90,16 +91,13 @@ const Navbar = () => {
           </button>
 
           {/* Mobile Hamburger Button */}
-          <button
+          <div
             onClick={toggleSidebar}
-            className="sm:hidden p-2 rounded-md transition-all hover:bg-gray-200 dark:hover:bg-gray-800"
+            className="sm:hidden p-2 rounded-md transition-all relative z-[1000]"
           >
-            {isSidebarOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
+            <Hamburger/>
+
+          </div>
         </div>
       </div>
 
@@ -110,14 +108,8 @@ const Navbar = () => {
         transition={{ duration: 0.3 }}
         className={`fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-900 text-black dark:text-white shadow-lg z-50`}
       >
-        <div className="p-4 flex justify-between items-center">
-          <span className="text-xl font-bold">Menu</span>
-          <button
-            onClick={toggleSidebar}
-            className="p-2 rounded-md transition-all hover:bg-gray-200 dark:hover:bg-gray-800"
-          >
-            <X className="h-6 w-6" />
-          </button>
+        <div className="py-6 flex justify-between items-center">
+    
         </div>
         <ul className="mt-4 flex flex-col gap-4 px-4">
           {info.map((item) => (
