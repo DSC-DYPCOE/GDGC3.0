@@ -8,6 +8,7 @@ import {
   Brain,
   Shield,
   SmartphoneIcon as Android,
+  Code,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -86,7 +87,7 @@ export default function TechSection() {
       title: "COMPETITIVE PROGRAMMING",
       description:
         "With ever-increasing competition in the IT industry, learn how to keep your knowledge sharp with competitive programming. It will enhance your problem solving skills, logic and many more.",
-      icon: Shield,
+      icon: Code,
       bgColor: theme === "dark" ? "bg-purple-900" : "bg-purple-50",
       textColor: theme === "dark" ? "text-purple-300" : "text-purple-600",
       link: "/cp.gif",
@@ -101,10 +102,8 @@ export default function TechSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2
-            className={`text-3xl font-bold tracking-tight ${
-              theme === "dark" ? "text-gray-100" : "text-gray-900"
-            }`}
-          >
+            className={`text-3xl font-bold text-black dark:text-white tracking-tight `}
+        >
             Technologies We Are Excited About
           </h2>
           <p className={`mt-4 text-lg ${theme === "dark" ? "text-gray-400" : "text-gray-500"}`}>
