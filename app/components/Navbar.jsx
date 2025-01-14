@@ -32,7 +32,9 @@ const Navbar = () => {
             >
               <Logo size={25} />
               <div>
-                <div className=" text-sm md:text-xl">Google Developer Group club</div>
+                <div className=" text-sm md:text-xl">
+                  Google Developer Groups on Campus
+                </div>
                 <div className="text-[11px] md:text-sm text-slate-400">
                   D.Y.Patil College of Engineering - Pune
                 </div>
@@ -95,8 +97,7 @@ const Navbar = () => {
             onClick={toggleSidebar}
             className="sm:hidden p-2 rounded-md transition-all relative z-[1000]"
           >
-            <Hamburger/>
-
+            <Hamburger />
           </div>
         </div>
       </div>
@@ -108,9 +109,7 @@ const Navbar = () => {
         transition={{ duration: 0.3 }}
         className={`fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-900 text-black dark:text-white shadow-lg z-50`}
       >
-        <div className="py-6 flex justify-between items-center">
-    
-        </div>
+        <div className="py-6 flex justify-between items-center"></div>
         <ul className="mt-4 flex flex-col gap-4 px-4">
           {info.map((item) => (
             <li key={item.name} className="relative group">
@@ -118,7 +117,9 @@ const Navbar = () => {
                 href={item.to}
                 className={`flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-300 ${
                   pathname === item.to
-                    ? (theme=="light"?"bg-slate-700 text-white":"bg-slate-300 text-black")
+                    ? theme == "light"
+                      ? "bg-slate-700 text-white"
+                      : "bg-slate-300 text-black"
                     : "hover:bg-primary/10"
                 }`}
               >

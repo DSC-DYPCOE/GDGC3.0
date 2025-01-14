@@ -96,3 +96,19 @@ body {
   background-size: 200% auto;
   animation: gradient 3s linear infinite;
 }
+
+@keyframes walk {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(100vw - 5rem)); /* Adjust based on GIF size */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-walk {
+  animation: walk 10s linear infinite;
+}

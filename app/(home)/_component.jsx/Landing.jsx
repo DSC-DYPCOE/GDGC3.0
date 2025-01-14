@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState,useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Matter from "matter-js";
 import Logo from "@/app/components/Logo";
@@ -261,7 +261,16 @@ const Landing = () => {
   }, [mounted, controls1, controls2, controls3, controls4]);
 
   return (
-    <div className={`w-full z-100 h-[80vh]  relative  ${theme=="light"?"bg-white":"bg-black"}`}>
+    <div
+      className={`w-full z-10 h-[85vh]  relative  `}
+      style={{
+        backgroundImage:
+          theme == "light" ? `url('./lightbg.png')` : `url('./darkbg.png')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       {/* Shapes Layer */}
       {mounted && (
         <>
@@ -270,7 +279,7 @@ const Landing = () => {
             width={70}
             height={70}
             animate={controls1}
-            style={{ position: "absolute", cursor: "grab", zIndex: 10 }}
+            className="absolute cursor-grab z-10 max-w-[calc(100%-10px)] max-h-[calc(100%-10px)]"
             drag
             dragElastic={0}
             dragMomentum={false}
@@ -299,6 +308,7 @@ const Landing = () => {
               scale: 1.1,
               cursor: "grabbing",
             }}
+            className="absolute cursor-grab z-10 max-w-[calc(100%-10px)] max-h-[calc(100%-10px)]"
             onDragStart={() => handleDragStart("shape2")}
             onDrag={(event, info) => handleDragMove("shape2", info.point)}
             onDragEnd={() => handleDragEnd("shape2")}
@@ -314,6 +324,7 @@ const Landing = () => {
             animate={controls3}
             style={{ position: "absolute", cursor: "grab", zIndex: 10 }}
             drag
+            className="absolute cursor-grab z-10 max-w-[calc(100%-10px)] max-h-[calc(100%-10px)]"
             dragElastic={0}
             dragMomentum={false}
             whileDrag={{
@@ -332,6 +343,7 @@ const Landing = () => {
             src="/shape4.png"
             width={70}
             height={70}
+            className="absolute cursor-grab z-10 max-w-[calc(100%-10px)] max-h-[calc(100%-10px)]"
             animate={controls4}
             style={{ position: "absolute", cursor: "grab", zIndex: 10 }}
             drag
@@ -357,12 +369,10 @@ const Landing = () => {
       <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none">
         <span className="z-20 gap-2 relative flex items-center justify-center flex-col">
           <Logo size={60} />
-          <div
-            className={`font-bold flex items-center justify-center`}
-          >
+          <div className={`font-bold flex items-center justify-center`}>
             <span className="relative flex text-md md:text-2xl items-center justify-center">
               <Typewriter
-                words={["Google Developer Student Club"]}
+                words={["Google Developer Groups on Campus"]}
                 cursor={false}
                 typeSpeed={70}
                 deleteSpeed={50}
@@ -383,7 +393,7 @@ const Landing = () => {
                   className="ml-1 h-10 relative -top-1 -left-2.5 md:-top-4 md:-left-5 w-4 md:w-10 object-contain"
                   style={{
                     filter: "brightness(1.2)",
-                    scale:2,
+                    scale: 2,
                     opacity: isTyping ? 1 : 0,
                   }}
                 />
@@ -415,7 +425,6 @@ const Landing = () => {
           >
             Join Community
           </motion.button>
-        
         </span>
       </div>
     </div>
