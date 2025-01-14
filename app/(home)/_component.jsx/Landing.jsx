@@ -261,7 +261,7 @@ const Landing = () => {
   }, [mounted, controls1, controls2, controls3, controls4]);
 
   return (
-    <div className={`w-full h-[80vh]  relative overflow-hidden ${theme=="light"?"bg-white":"bg-black"}`}>
+    <div className={`w-full z-100 h-[80vh]  relative  ${theme=="light"?"bg-white":"bg-black"}`}>
       {/* Shapes Layer */}
       {mounted && (
         <>
@@ -358,9 +358,9 @@ const Landing = () => {
         <span className="z-20 gap-2 relative flex items-center justify-center flex-col">
           <Logo size={60} />
           <div
-            className={`text-2xl font-bold flex items-center justify-center`}
+            className={`font-bold flex items-center justify-center`}
           >
-            <span className="relative flex items-center justify-center">
+            <span className="relative flex text-md md:text-2xl items-center justify-center">
               <Typewriter
                 words={["Google Developer Student Club"]}
                 cursor={false}
@@ -380,7 +380,7 @@ const Landing = () => {
                 <img
                   src="/fire.gif"
                   alt="Fire effect"
-                  className="ml-1 h-10 relative -top-4 -left-5 w-10 object-contain"
+                  className="ml-1 h-10 relative -top-1 -left-2.5 md:-top-4 md:-left-5 w-4 md:w-10 object-contain"
                   style={{
                     filter: "brightness(1.2)",
                     scale:2,
@@ -390,7 +390,7 @@ const Landing = () => {
               )}
             </span>
           </div>
-          <div className="mt-2 animate-fadeIn">
+          <div className="mt-2 text-sm md:text-lg animate-fadeIn">
             D.Y. Patil College of Engineering - Akurdi
           </div>
           <motion.button

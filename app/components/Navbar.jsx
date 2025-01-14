@@ -32,8 +32,8 @@ const Navbar = () => {
             >
               <Logo size={25} />
               <div>
-                <div>Google Developer Group club</div>
-                <div className="text-sm text-slate-400">
+                <div className=" text-sm md:text-xl">Google Developer Group club</div>
+                <div className="text-[11px] md:text-sm text-slate-400">
                   D.Y.Patil College of Engineering - Pune
                 </div>
               </div>
@@ -84,9 +84,9 @@ const Navbar = () => {
             className="p-2 rounded-full transition-all hover:bg-gray-200 dark:hover:bg-gray-800"
           >
             {theme === "light" ? (
-              <Sun className="h-6 w-6" />
+              <Sun className="h-4 w-4  md:h-6 md:w-6" />
             ) : (
-              <Moon className="h-6 w-6" />
+              <Moon className="h-4 w-4 md:h-6 md:w-6" />
             )}
           </button>
 

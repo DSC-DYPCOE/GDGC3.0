@@ -5,7 +5,7 @@ import TechSection from "./Technology";
 
 const Home = () => {
   return (
-    <div>
+    <div className="w-full overflow-hidden">
       <Landing />
       <Info />
       <TechSection />
