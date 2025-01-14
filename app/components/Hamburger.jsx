@@ -9,7 +9,7 @@ export default function Hamburger() {
   return (
     <>
       <button
-        className={`menu w-[7vh] ${theme === "dark" ? "dark" : "light"}`}
+        className={`menu w-[4vh] md:w-[7vh] ${theme === "dark" ? "dark" : "light"}`}
         onClick={(e) => {
           e.currentTarget.classList.toggle("opened");
           e.currentTarget.setAttribute(
