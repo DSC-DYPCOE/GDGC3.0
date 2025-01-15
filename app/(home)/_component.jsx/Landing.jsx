@@ -49,7 +49,7 @@ const Landing = () => {
     );
     const constrainedY = Math.max(
       35,
-      Math.min(point.y, window.innerHeight * 0.8 - 35)
+      Math.min(point.y, window.innerHeight - 35)
     );
 
     Matter.Body.setPosition(bodiesRef.current[body], {
@@ -138,7 +138,7 @@ const Landing = () => {
       ),
       Matter.Bodies.rectangle(
         window.innerWidth / 2,
-        window.innerHeight * 0.8 + 10,
+        window.innerHeight + 10,
         window.innerWidth,
         20,
         {
@@ -148,9 +148,9 @@ const Landing = () => {
       ),
       Matter.Bodies.rectangle(
         -10,
-        window.innerHeight * 0.4,
+        window.innerHeight / 2,
         20,
-        window.innerHeight * 0.8,
+        window.innerHeight,
         {
           isStatic: true,
           restitution: 0.7,
@@ -158,9 +158,9 @@ const Landing = () => {
       ),
       Matter.Bodies.rectangle(
         window.innerWidth + 10,
-        window.innerHeight * 0.4,
+        window.innerHeight / 2,
         20,
-        window.innerHeight * 0.8,
+        window.innerHeight,
         {
           isStatic: true,
           restitution: 0.7,
@@ -262,7 +262,7 @@ const Landing = () => {
 
   return (
     <div
-      className={`w-full z-10 h-[85vh]  relative  `}
+      className={`w-full z-10 h-screen relative`}
       style={{
         backgroundImage:
           theme == "light" ? `url('./lightbg.png')` : `url('./darkbg.png')`,
