@@ -365,11 +365,10 @@ const Landing = () => {
       )}
 
       {/* Logo and Text Layer */}
-      {/* Logo and Text Layer */}
       <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none">
-        <span className="z-20 gap-2 relative flex items-center justify-center flex-col">
+        <span className="z-20 gap-4 relative flex items-center justify-center flex-col text-center">
           <Logo size={60} />
-          <div className={`font-bold flex items-center justify-center`}>
+          <div className={`font-bold flex items-center justify-center flex-col`}>
             <span className="relative flex text-md md:text-2xl items-center justify-center">
               <Typewriter
                 words={["Google Developer Groups on Campus"]}
@@ -400,7 +399,7 @@ const Landing = () => {
               )}
             </span>
           </div>
-          <div className="mt-2 text-sm md:text-lg animate-fadeIn">
+          <div className="mt-2 text-sm md:text-lg animate-fadeIn text-center px-4">
             D.Y. Patil College of Engineering - Akurdi
           </div>
           <motion.button
