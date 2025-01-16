@@ -266,8 +266,8 @@ const Landing = () => {
       style={{
         backgroundImage:
           theme == "light" ? `url('./lightbg.png')` : `url('./darkbg.png')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundSize:"cover",
+        backgroundPosition: "start",
         backgroundRepeat: "no-repeat",
       }}
     >
@@ -369,8 +369,8 @@ const Landing = () => {
       <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none">
         <span className="z-20 gap-2 relative flex items-center justify-center flex-col">
           <Logo size={60} />
-          <div className={`font-bold flex items-center justify-center`}>
-            <span className="relative flex text-md md:text-2xl items-center justify-center">
+          <div className={`mt-4 font-bold flex items-center justify-center`}>
+            <span className="relative dark:text-white text-black text-lg flex text-md md:text-2xl items-center justify-center">
               <Typewriter
                 words={["Google Developer Groups on Campus"]}
                 cursor={false}
@@ -400,7 +400,7 @@ const Landing = () => {
               )}
             </span>
           </div>
-          <div className="mt-2 text-sm md:text-lg animate-fadeIn">
+          <div className="-mt-2 md:mt-2 text-md md:text-lg animate-fadeIn">
             D.Y. Patil College of Engineering - Akurdi
           </div>
           <motion.button
