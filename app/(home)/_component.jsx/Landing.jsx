@@ -365,43 +365,47 @@ const Landing = () => {
       )}
 
       {/* Logo and Text Layer */}
-      {/* Logo and Text Layer */}
-      <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none">
-        <span className="z-20 gap-2 relative flex items-center justify-center flex-col">
+        <span className="z-20 gap-4 relative flex items-center justify-center flex-col text-center">
           <Logo size={60} />
           <div className={`mt-4 font-bold flex items-center justify-center`}>
             <span className="relative dark:text-white text-black text-lg flex text-md md:text-2xl items-center justify-center">
-              <Typewriter
-                words={["Google Developer Groups on Campus"]}
-                cursor={false}
-                typeSpeed={70}
-                deleteSpeed={50}
-                delaySpeed={1000}
-                onType={() => {
-                  setIsTyping(true);
-                  setShowFire(true);
-                }}
-                onDelay={() => {
-                  setIsTyping(false);
-                  setTimeout(() => setShowFire(false), 1000);
-                }}
-              />
-              {showFire && (
-                <img
-                  src="/fire.gif"
-                  alt="Fire effect"
-                  className="ml-1 h-10 relative -top-1 -left-2.5 md:-top-4 md:-left-5 w-4 md:w-10 object-contain"
-                  style={{
-                    filter: "brightness(1.2)",
-                    scale: 2,
-                    opacity: isTyping ? 1 : 0,
-                  }}
-                />
-              )}
+              <div className={`font-bold flex items-center justify-center flex-col`}>
+                <span className="relative flex text-md md:text-2xl items-center justify-center">
+                  <Typewriter
+                    words={["Google Developer Groups on Campus"]}
+                    cursor={false}
+                    typeSpeed={70}
+                    deleteSpeed={50}
+                    delaySpeed={1000}
+                    onType={() => {
+                      setIsTyping(true);
+                      setShowFire(true);
+                    }}
+                    onDelay={() => {
+                      setIsTyping(false);
+                      setTimeout(() => setShowFire(false), 1000);
+                    }}
+                  />
+                  {showFire && (
+                    <img
+                      src="/fire.gif"
+                      alt="Fire effect"
+                      className="ml-1 h-10 relative -top-1 -left-2.5 md:-top-4 md:-left-5 w-4 md:w-10 object-contain"
+                      style={{
+                        filter: "brightness(1.2)",
+                        scale: 2,
+                        opacity: isTyping ? 1 : 0,
+                      }}
+                    />
+                  )}
+                </span>
+              </div>
             </span>
           </div>
           <div className="-mt-2 md:mt-2 text-md md:text-lg animate-fadeIn">
-            D.Y. Patil College of Engineering - Akurdi
+            <div className="mt-2 text-sm md:text-lg animate-fadeIn text-center px-4">
+              D.Y. Patil College of Engineering - Akurdi
+            </div>
           </div>
           <motion.button
             className={`w-40 mt-4 h-auto ${
