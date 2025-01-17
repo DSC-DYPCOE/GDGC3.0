@@ -112,3 +112,26 @@ body {
 .animate-walk {
   animation: walk 10s linear infinite;
 }
+
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes text-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-text {
+  background-size: 200% auto;
+  animation: text-shimmer 5s linear infinite;
+}
+

@@ -11,6 +11,7 @@
   "dependencies": {
     "@omsalunke0852/multi-ui-cli": "^1.0.10",
     "@radix-ui/react-slot": "^1.1.1",
+    "@react-three/fiber": "^8.17.12",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.17.0",
@@ -23,6 +24,7 @@
     "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
     "react-simple-typewriter": "^5.0.1",
+    "react-three": "^0.9.7",
     "sat": "^0.9.0",
     "styled-component": "^2.8.0",
     "tailwind-merge": "^2.6.0",
