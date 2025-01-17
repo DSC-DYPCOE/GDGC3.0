@@ -11,6 +11,8 @@ import {
   Code,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Lottie from "lottie-react";
+import webAnimation from "../../../public/web.json";
 
 export default function TechSection() {
   const [theme, setTheme] = useState("light");
@@ -40,7 +42,13 @@ export default function TechSection() {
       description:
         "Learn Web Development at a beautiful place with a great environment. Here, you will learn all about web development from scratch to advance level.",
       icon: Monitor,
-      link: "/webDev.gif",
+      component: () => (
+        <Lottie
+          animationData={webAnimation}
+          loop={true}
+          style={{ width: "100%", height: "100%" }}
+        />
+      ),
       bgColor: theme === "dark" ? "bg-amber-900" : "bg-amber-50",
       textColor: theme === "dark" ? "text-amber-300" : "text-amber-600",
       buttonColor: theme === "dark" ? "bg-amber-700 hover:bg-amber-600" : "bg-amber-500 hover:bg-amber-600",
@@ -146,11 +154,15 @@ export default function TechSection() {
                 </div>
                 <div className="flex-1 flex justify-center">
                   <div className="w-64 h-64 flex items-center justify-center">
-                    <img
-                      src={tech.link}
-                      className={`w-full h-full`}
-                      alt={tech.title}
-                    />
+                    {tech.component ? (
+                      <tech.component />
+                    ) : (
+                      <img
+                        src={tech.link}
+                        className={`w-full h-full`}
+                        alt={tech.title}
+                      />
+                    )}
                   </div>
                 </div>
               </div>
