@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Project } from '../../../../models/Schema';
+import { Project } from "../../../../models/Schema";
 import { connectToDatabase } from "@/lib/db";
 
 export async function POST(req) {
@@ -9,8 +9,8 @@ export async function POST(req) {
   const project = new Project({
     title,
     description,
-    file,
-    link
+    file:"lkn",
+    link,
   });
   try {
     await project.save();
@@ -31,10 +31,7 @@ export async function GET() {
     connectToDatabase();
 
     const projects = await Project.find();
-    return NextResponse.json(
-      projects,
-      { status: 200 }
-    );
+    return NextResponse.json(projects, { status: 200 });
   } catch (error) {
     return NextResponse.json(
       { message: "Failed to fetch projects" },
@@ -44,9 +41,10 @@ export async function GET() {
 }
 
 export async function DELETE(req) {
-  const { id } = await req.json();
   try {
     connectToDatabase();
+    const { searchParams } = new URL(req.url); // For query parameter
+    const id = searchParams.get("id");
 
     await Project.findByIdAndDelete(id);
     return NextResponse.json(
@@ -60,4 +58,3 @@ export async function DELETE(req) {
     );
   }
 }
-

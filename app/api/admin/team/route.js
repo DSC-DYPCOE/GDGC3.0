@@ -10,7 +10,7 @@ export async function POST(req) {
     name,
     domain,
     bio,
-    file,
+    file:"om",
     instagram,
     github,
     linkedin,
@@ -22,6 +22,7 @@ export async function POST(req) {
       { status: 201 }
     );
   } catch (error) {
+    console.log(error)
     return NextResponse.json(
       { message: "Failed to create team" },
       { status: 400 }
@@ -44,20 +45,39 @@ export async function GET() {
   }
 }
 
-export async function DELETE(req) {
-  const { id } = await req.json();
+export async function DELETE(req,  params ) {
   try {
-    connectToDatabase();
+    // Ensure the database connection is established
+    await connectToDatabase();
+    const { searchParams } = new URL(req.url); // For query parameter
+    const id = searchParams.get("id");
+  
+    if (!id) {
+      return NextResponse.json(
+        { message: "ID is required" },
+        { status: 400 }
+      );
+    }
 
-    await User.findByIdAndDelete(id);
+    // Delete the user by ID
+    const deletedUser = await User.findByIdAndDelete(id);
+
+    if (!deletedUser) {
+      return NextResponse.json(
+        { message: "No team found with the provided ID" },
+        { status: 404 }
+      );
+    }
+
     return NextResponse.json(
       { message: "Team deleted successfully" },
       { status: 200 }
     );
   } catch (error) {
+    console.error("Error deleting team:", error);
     return NextResponse.json(
       { message: "Failed to delete team" },
-      { status: 400 }
+      { status: 500 }
     );
   }
 }
