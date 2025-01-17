@@ -1,5 +1,6 @@
 import React from 'react';
 import sampleImage from "../assets/d2.jpg"
+const Android="https://imgs.search.brave.com/gRnRKSOWvGRrXPT8FRbKC1iKRg7-0kipTZ1PomPefKM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9yYXcu/Z2l0aHVidXNlcmNv/bnRlbnQuY29tL2Ru/ZmllbGQvZmx1dHRl/cl9zdmcvN2QzNzRk/NzEwNzU2MWNiZDkw/NmQ3YzBjYTI2ZmVm/MDJjYzAxZTdjOC9l/eGFtcGxlL2Fzc2V0/cy9mbHV0dGVyX2xv/Z28uc3ZnP3Nhbml0/aXplPXRydWU"
 const UpcomingEvents = () => {
   return (
     <div className="w-full bg-white dark:bg-gray-900 py-16">
@@ -17,7 +18,7 @@ const UpcomingEvents = () => {
               {/* Image container with dark background */}
               <div className="bg-[#1a1b35] rounded-lg overflow-hidden mb-4">
             <img
-                src={sampleImage}
+                src={Android}
                 alt="Flutter Forward Event"
                 className="w-full h-[200px] object-contain p-4"
             />
