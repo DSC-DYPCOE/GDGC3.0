@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full fixed z-50 shadow-2xl transition-all py-1 duration-300 ${
+      className={`w-full fixed top-0 z-50 shadow-2xl transition-all py-1 duration-300 ${
         theme === "light" ? "bg-white text-black" : "bg-gray-900 text-white"
       }`}
     >
