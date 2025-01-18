@@ -9,7 +9,7 @@ export async function POST(req) {
   const project = new Project({
     title,
     description,
-    file:"lkn",
+    file,
     link,
   });
   try {

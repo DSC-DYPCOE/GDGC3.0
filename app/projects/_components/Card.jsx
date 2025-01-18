@@ -1,11 +1,14 @@
 import Image from "next/image";
 import "./project.css";
+import Link from "next/link";
 
-const Card = ({ title, description, image }) => {
+const Card = ({ title, description, image, link }) => {
   return (
     <div className="card ">
       <div className="img-cont ">
-        <span className="drop-down-window">{title} USD</span>
+        <span className="drop-down-window">
+          <Link href={link}>{title}</Link>
+        </span>
         <Image
           className="img h-[60vh]"
           src={image}

@@ -5,12 +5,13 @@ import { connectToDatabase } from "@/lib/db";
 export async function POST(req) {
   const { name, domain, bio, file, instagram, github, linkedin } =
     await req.json();
+    console.log(file)
   connectToDatabase();
   const user = new User({
     name,
     domain,
     bio,
-    file:"om",
+    file,
     instagram,
     github,
     linkedin,

@@ -1,29 +1,35 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import TeamCardStack from './_components/CardStack';
-import IconFilter from './_components/IconFilter';
-
-const initialTeamMembers = [
-  { id: 1, name: 'Alice', role: 'Technical', image: '/omsalunke.jpeg', bio: 'Tech Lead' },
-  { id: 2, name: 'Alice', role: 'Technical', image: '/omsalunke.jpeg', bio: 'Tech Lead' },
-  { id: 3, name: 'Alice', role: 'Technical', image: '/omsalunke.jpeg', bio: 'Tech Lead' },
-  { id: 4, name: 'Alice', role: 'Technical', image: '/alice.jpg', bio: 'Tech Lead' },
-  { id: 5, name: 'Eve', role: 'Media', image: '/eve.jpg', bio: 'Media Coordinator' },
-];
-
+import { useEffect, useState } from "react";
+import TeamCardStack from "./_components/CardStack";
+import IconFilter from "./_components/IconFilter";
+import axios from "axios";
+import Title from "../components/Title";
 const TeamPage = () => {
-  const [activeCategory, setActiveCategory] = useState('Technical');
+  const [teamData, setTeamData] = useState([]);
+  const [activeCategory, setActiveCategory] = useState("Technical");
+useEffect(()=>{
+  async function fetchData(){
 
-  console.log('Active Category:', activeCategory);
+    const data = await axios.get("/api/admin/team");
+setTeamData(data.data)
+  }
+  fetchData();
+},[activeCategory])
 
-  const filteredTeamMembers = initialTeamMembers.filter(
-    (member) => member.role === activeCategory
+  console.log("Active Category:", activeCategory);
+
+  const filteredTeamMembers = teamData.filter(
+    (member) => member.domain === activeCategory
   );
-  console.log('Filtered Team Members:', filteredTeamMembers);
+  console.log("Filtered Team Members:", filteredTeamMembers);
   return (
-    <div className="container flex flex-col items-center mx-auto p-4">
-      <IconFilter activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
+    <div className="container flex flex-col items-center mx-auto p-4 pt-16">
+      <Title title={"Our Team"} className="text-xl"/>
+      <IconFilter
+        activeCategory={activeCategory}
+        setActiveCategory={setActiveCategory}
+      />
       <TeamCardStack initialTeamMembers={filteredTeamMembers} />
     </div>
   );

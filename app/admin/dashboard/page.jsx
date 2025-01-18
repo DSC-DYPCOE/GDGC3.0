@@ -109,20 +109,50 @@ const Dashboard = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+  // This function is used to validate the form data before submitting it.
+  // It checks if all required fields are filled and sets errors accordingly.
+  // If all fields are valid, it returns true, otherwise, it returns false.
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      axios
-        .post("/api/admin/team", formData)
-        .then((response) => {
-          setTeamData([...teamData, response.data]);
-          handleCloseModal();
-        })
-        .catch((error) => console.error("Error adding team:", error));
+  
+    // Validate the form first
+    if (!validateForm()) return;
+  
+    // Step 1: Upload the file to Cloudinary
+    try {
+      const cloudinaryFormData = new FormData();
+      cloudinaryFormData.append("file", formData.file);
+      cloudinaryFormData.append("upload_preset", "gdgcimg");
+      cloudinaryFormData.append("cloud_name", "dqnbme3xm");
+  
+      const response = await fetch(
+        "https://api.cloudinary.com/v1_1/dqnbme3xm/image/upload",
+        {
+          method: "POST",
+          body: cloudinaryFormData,
+        }
+      );
+  
+      if (!response.ok) {
+        throw new Error("Failed to upload image to Cloudinary");
+      }
+  
+      const data = await response.json();
+      console.log("Uploaded image data:", data);
+  
+      // Update the `file` field with the Cloudinary URL
+      const updatedFormData = { ...formData, file: data.secure_url };
+  
+      // Step 2: Submit the updated form data to your backend
+      const teamResponse = await axios.post("/api/admin/team", updatedFormData);
+      setTeamData([...teamData, teamResponse.data]);
+      handleCloseModal();
+    } catch (error) {
+      console.error("Error uploading image or submitting team data:", error);
     }
   };
-
+  
   const handleAddProjectClick = () => {
     setIsProjectModalOpen(true);
   };
@@ -150,11 +180,35 @@ const Dashboard = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleProjectSubmit = (e) => {
+  const handleProjectSubmit = async(e) => {
     e.preventDefault();
     if (validateProjectForm()) {
+      const cloudinaryFormData = new FormData();
+      cloudinaryFormData.append("file", projectFormData.file);
+      cloudinaryFormData.append("upload_preset", "gdgcimg");
+      cloudinaryFormData.append("cloud_name", "dqnbme3xm");
+  
+      const response = await fetch(
+        "https://api.cloudinary.com/v1_1/dqnbme3xm/image/upload",
+        {
+          method: "POST",
+          body: cloudinaryFormData,
+        }
+      );
+  
+      if (!response.ok) {
+        throw new Error("Failed to upload image to Cloudinary");
+      }
+  
+      const data = await response.json();
+      console.log("Uploaded image data:", data);
+  
+      // Update the `file` field with the Cloudinary URL
+      const updatedFormData = { ...projectFormData, file: data.secure_url };
+  
+     
       axios
-        .post("/api/admin/project", projectFormData)
+        .post("/api/admin/project", updatedFormData)
         .then((response) => {
           setProjectData([...projectData, response.data]);
           handleCloseProjectModal();
@@ -208,13 +262,18 @@ const Dashboard = () => {
                   {errors.name && (
                     <span className="text-red-500">{errors.name}</span>
                   )}
-                  <Input
+                  <select
                     name="domain"
-                    placeholder="Domain"
+                    placeholder="Select Domain"
                     className="mb-2"
                     value={formData.domain}
                     onChange={handleInputChange}
-                  />
+                  >
+                    <option value="Technical">Technical</option>
+                    <option value="Media">Media</option>
+                    <option value="PR">PR</option>
+                    <option value="Management">Management</option>
+                  </select>
                   {errors.domain && (
                     <span className="text-red-500">{errors.domain}</span>
                   )}

@@ -1,41 +1,24 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import ProjectCard from './_components/Card';
-
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import ProjectCard from "./_components/Card";
+import axios from "axios";
+import Title from "../components/Title";
 const ProjectsPage = () => {
-  const projects = [
-    {
-      id: 1,
-      title: 'Portfolio Website',
-      description: 'A modern and responsive portfolio showcasing web development skills.',
-      image: '/omsalunke.jpeg',
-    },
-    {
-      id: 2,
-      title: 'E-Commerce App',
-      description: 'A sleek and scalable e-commerce platform for small businesses.',
-      image: '/project2.jpg',
-    },
-    {
-      id: 3,
-      title: 'Fitness Tracker',
-      description: 'An app to track workouts, set goals, and monitor progress.',
-      image: '/project3.jpg',
-    },
-    {
-      id: 4,
-      title: 'Blog Platform',
-      description: 'A feature-rich blogging platform with Markdown support.',
-      image: '/project4.jpg',
-    },
-  ];
+  const [projectData, setprojectData] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const data = await axios.get("/api/admin/project");
+      setprojectData(data.data);
+    }
+    fetchData();
+  }, []);
 
   return (
     <div className="min-h-screen pt-10">
       <h1 className="text-4xl h-20 flex justify-center items-center mt-[10vh] font-bold text-center text-white mb-12">
-        My Projects
+        <Title title="Our Project" />
       </h1>
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"
@@ -51,12 +34,13 @@ const ProjectsPage = () => {
           },
         }}
       >
-        {projects.map((project) => (
+        {projectData?.map((project) => (
           <ProjectCard
-            key={project.id}
+            key={project._id}
             title={project.title}
+            link={project.link}
             description={project.description}
-            image={project.image}
+            image={project.file}
           />
         ))}
       </motion.div>

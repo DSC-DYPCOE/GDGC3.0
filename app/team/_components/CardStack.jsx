@@ -40,12 +40,12 @@ const TeamCardStack = ({ initialTeamMembers }) => {
       <AnimatePresence>
         {teamMembers.map((member, index) => (
           <TeamCard
-            key={member.id}
+            key={member._id}
             {...member}
             index={index}
             onDragStart={handleDragStart}
             onDragEnd={() => handleDragEnd(member.id)}
-            onDoubleClick={() => handleCardDoubleClick(member)}
+            onClick={() => handleCardDoubleClick(member)}
           />
         ))}
       </AnimatePresence>

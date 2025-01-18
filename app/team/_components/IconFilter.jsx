@@ -13,7 +13,7 @@ const categories = [
 
 const IconFilter = ({ activeCategory, setActiveCategory }) => {
   return (
-    <div className="  mt-20 flex justify-center space-x-4 mb-8">
+    <div className="  mt-2 flex justify-center space-x-4 mb-8">
       {categories.map((category) => (
         <motion.button
           key={category.name}

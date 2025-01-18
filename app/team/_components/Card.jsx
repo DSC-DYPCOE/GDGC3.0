@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const TeamCard = ({ name, role, image, bio, index, onDragEnd, onClick }) => {
+const TeamCard = ({ name, domain, file, bio, index, onDragEnd, onClick }) => {
   const [randomTilt, setRandomTilt] = useState(0);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const TeamCard = ({ name, role, image, bio, index, onDragEnd, onClick }) => {
       <motion.div className="w-full h-full rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
         <div className="relative h-[45vh]">
           <Image
-            src={image || "/placeholder.svg"}
+            src={file || "/placeholder.svg"}
             alt={name}
             fill
             style={{ objectFit:"cover",objectPosition:"center" }}
@@ -39,7 +39,7 @@ const TeamCard = ({ name, role, image, bio, index, onDragEnd, onClick }) => {
         </div>
         <div className="p-4 bg-white bg-opacity-90 backdrop-blur-sm">
           <h2 className="text-xl font-bold text-gray-800">{name}</h2>
-          <p className="text-sm text-purple-600">{role}</p>
+          <p className="text-sm text-purple-600">{domain}</p>
         </div>
       </motion.div>
     </motion.div>
