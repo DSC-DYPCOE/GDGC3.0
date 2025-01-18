@@ -2,9 +2,8 @@
 import React from 'react';
 import { useTheme } from 'next-themes';
 import { Moon, Sun } from 'lucide-react';
-import UpcomingEvents from './UpcomingEvent';
-import sampleImage from "../assets/anvi.jpg"
-import PreviousEvents from './PreviousEvent';
+import UpcomingEvents from './_components/UpcomingEvent';
+import PreviousEvents from './_components/PreviousEvent';
 
 const EventsSection = () => {
   const { theme, setTheme } = useTheme();
