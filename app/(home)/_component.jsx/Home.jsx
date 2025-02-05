@@ -4,15 +4,12 @@ import Info from "./Info";
 import TechSection from "./Technology";
 import FAQSection from "./FAQ";
 import Footer from "./Footer";
-
+import HomePage from "./HomePage";
 const Home = () => {
   return (
     <div className="w-full overflow-hidden">
-      <Landing />
-      <Info />
-      <TechSection />
-      <FAQSection/>
-      <Footer/>
+      <HomePage />
+     
     </div>
   );
 };
