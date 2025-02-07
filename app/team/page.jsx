@@ -3,7 +3,7 @@
 import React from 'react';
 import { Users } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination } from 'swiper/modules';
+import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -59,6 +59,17 @@ const IdCard = ({ member }) => {
           <div className="relative z-10">
             {/* Logo image */}
             <div className="mb-4">
+              {/* Top yello part at the top of the card */}
+            <div
+              className="absolute w-[100px] h-[27px] bg-[#F4B400F0] rounded-full mx-auto"
+              style={{
+                marginTop: "17px",
+                marginLeft:"130px",
+                transform: "scale(1.2)",
+                transformOrigin: "center bottom",
+              }}
+            />
+
               <div className="w-14 h-14 rounded-lg flex items-center justify-center">
                 <img 
                   src="/GDGC_Icon.png" // Replace with the actual logo path
@@ -80,22 +91,60 @@ const IdCard = ({ member }) => {
             <div className="space-y-2">
               <div>
                 <h3 className="text-lg font-bold text-gray-900">{member.role}</h3>
-                <p className="text-xs text-gray-500">ID: {member.id}</p>
+                {/* <p className="text-xs text-gray-500">ID: {member.id}</p> */}
+                <div className="absolute top-0 left-0 w-full z-[2]" style={{ left: "-150px" }}>
+            
+            {/* Green part at the bottom */}
+            <div
+              className="w-[250px] h-[35px] bg-[#30A953] rounded-full mx-auto"
+              style={{
+                marginTop: "190px",
+                transform: "scale(1.2)",
+                transformOrigin: "center bottom",
+              }}
+            />
+      </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right side image */}
-        <div className="w-1/2 overflow-hidden">
-          <img
-            src={member.image}
-            alt={member.name}
-            className="w-full h-full object-cover"
-          />
+     {/* Right side image */}
+<div className="w-1/2 overflow-hidden relative">
+  {/* Green Shape with z-0 (Behind Image) */}
+  <div
+    className="absolute w-[120px] h-[35px] bg-[#EA4335] rounded-full mx-auto z-0"
+    style={{
+      marginTop: "10px",
+      marginLeft: "170px",
+      transform: "scale(1.2)",
+      transformOrigin: "center bottom",
+    }}
+  />
+  {/* Another Sphere at the right side of the image at center */}
+<div
+    className="absolute w-[180px] h-[35px] bg-[#4286F5] rounded-full mx-auto z-0"
+    style={{
+      marginTop: "101px",
+      marginLeft: "80px",
+      transform: "scale(1.2)",
+      transformOrigin: "center bottom",
+    }}
+
+  />
+  {/* Image with z-10 (Above the Green Shape) */}
+  <img
+    src={member.image}
+    alt={member.name}
+    className="w-full h-full object-cover z-10 relative"
+  />
+
+
+</div>
+        
         </div>
       </div>
-    </div>
+    
   );
 };
 
@@ -106,46 +155,52 @@ const TeamSection = () => {
         <h2 className="text-4xl font-bold text-center mb-16 text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
           Meet Our Team ⚡
         </h2>
-        <Swiper
-          effect={'coverflow'}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={3}
-          spaceBetween={-60}
-          coverflowEffect={{
-            rotate: 35,
-            stretch: 0,
-            depth: 250,
-            modifier: 1.5,
-            slideShadows: true
-          }}
-          pagination={{
-            clickable: true,
-            bulletActiveClass: 'swiper-pagination-bullet-active'
-          }}
-          modules={[EffectCoverflow, Pagination]}
-          className="mySwiper"
-          breakpoints={{
-            320: {
-              slidesPerView: 1.5,
-              spaceBetween: -30
-            },
-            640: {
-              slidesPerView: 2,
-              spaceBetween: -40
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: -60
-            }
-          }}
-        >
-          {teamMembers.map((member) => (
-            <SwiperSlide key={member.id}>
-              <IdCard member={member} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        
+<Swiper
+  effect="coverflow"
+  grabCursor={true}
+  centeredSlides={true}
+  slidesPerView="auto"
+  spaceBetween={-60}
+  loop={true} // ✅ Enables continuous looping
+  autoplay={{
+    delay: 3500, // 3.5 seconds delay
+    disableOnInteraction: false,
+  }}
+  coverflowEffect={{
+    rotate: 35,
+    stretch: 0,
+    depth: 250,
+    modifier: 1.5,
+    slideShadows: true,
+  }}
+  pagination={{
+    clickable: true,
+    bulletActiveClass: 'swiper-pagination-bullet-active',
+  }}
+  modules={[EffectCoverflow, Pagination, Autoplay]}
+  className="mySwiper"
+  breakpoints={{
+    320: {
+      slidesPerView: 1.5,
+      spaceBetween: -30,
+    },
+    640: {
+      slidesPerView: 2,
+      spaceBetween: -40,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: -60,
+    },
+  }}
+>
+  {teamMembers.map((member) => (
+    <SwiperSlide key={member.id}>
+      <IdCard member={member} />
+    </SwiperSlide>
+  ))}
+</Swiper>
       </div>
     </section>
   );
