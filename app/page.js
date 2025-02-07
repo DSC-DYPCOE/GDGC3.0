@@ -5,13 +5,13 @@ import Home from "./(home)/_component.jsx/Home";
 import GDGPreloader from "./Preloader/page";
 import HomePage from "./(home)/_component.jsx/HomePage";
 import GDSCInfoSection from "./Preloader/_components/LetsDoIt"
-import Info from "./event/event";
+import Info from "./event/page";
 export default function page() {
   return (
     <div className="w-full min-h-screen">
       {/* <GDGPreloader /> */}
       <HomePage />
-      {/* <GDSCInfoSection /> */}
+      
       
     </div>
   );

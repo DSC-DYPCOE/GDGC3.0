@@ -267,7 +267,7 @@ const GDGCAnimation = () => {
                   repeatType: "reverse",
                 }}
               >
-                Scroll Down
+                {/* Scroll Down */}
               </motion.span>
               <motion.div
                 animate={{
@@ -288,8 +288,8 @@ const GDGCAnimation = () => {
           </motion.div>
         )}
 
-        {currentScene === 2 && <SecondScene />}
-        {currentScene === 2 && <ThirdScene />}
+        {/* {currentScene === 2 && <SecondScene />}
+        {currentScene === 2 && <ThirdScene />} */}
       </AnimatePresence>
     </div>
 

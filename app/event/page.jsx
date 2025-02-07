@@ -1,92 +1,80 @@
-"use client";
 import React from 'react';
-import { useTheme } from 'next-themes';
-import { Moon, Sun } from 'lucide-react';
-import UpcomingEvents from './_components/UpcomingEvent';
-import PreviousEvents from './_components/PreviousEvent';
+import { Card, CardContent } from '@/components/ui/card';
 
-const EventsSection = () => {
-  const { theme, setTheme } = useTheme();
-
-  const stats = [
-    { number: "15", label: "Events", textColor: "text-red-500 dark:text-red-400" },
-    { number: "10", label: "Workshop", textColor: "text-green-500 dark:text-green-400" },
-    { number: "100+", label: "Members", textColor: "text-yellow-500 dark:text-yellow-400" }
+const GDGCPage = () => {
+  const infoBoxes = [
+    {
+      title: "Concept of GDGC",
+      content: "GDGC creates a supportive environment for students to grow their technical expertise, share knowledge, and work on real-world tech solutions. It’s designed for students who are enthusiastic about innovation and continuous learning.",
+      bgColor: "bg-red-100",
+      borderColor: "border-red-500",
+      textColor: "text-red-600"
+    },
+    {
+      title: "Target Audience",
+      content: "GDGC is tailored for university students passionate about technology and eager to enhance their coding and problem-solving skills while building projects and fostering a global tech network..",
+      bgColor: "bg-blue-100",
+      borderColor: "border-blue-500",
+      textColor: "text-blue-600"
+    },
+    {
+      title: "Why GDGC?",
+      content: "GDGC bridges the gap between academic learning and industry demands by focusing on skill application, hands-on projects, and collaboration with peers and professionals for holistic development.",
+      bgColor: "bg-green-100",
+      borderColor: "border-green-500",
+      textColor: "text-green-600"
+    },
+    {
+      title: "Other Concept",
+      content: "GDGC promotes community building and inspires students to take leadership roles. It’s a hub for organizing tech events, learning new tools, and forging valuable connections in the tech ecosystem.",
+      bgColor: "bg-yellow-100",
+      borderColor: "border-yellow-500",
+      textColor: "text-yellow-600"
+    }
   ];
 
   return (
-    <div className="w-full bg-white dark:bg-gray-900 transition-colors duration-200">
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        {/* Theme Toggle */}
-        <div className="flex justify-end mb-8">
-          <button
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? (
-              <Sun className="w-5 h-5 text-yellow-500" />
-            ) : (
-              <Moon className="w-5 h-5 text-gray-700" />
-            )}
-          </button>
+    <div className="relative min-h-screen bg-transparent p-8 z-20">
+      <div className="max-w-4xl mx-auto space-y-8 relative z-30">
+        {/* Header Section */}
+        <div className="text-center space-y-6">
+          <h1 className="text-4xl font-bold text-white flex items-center justify-center gap-2">
+            What is GDGC? 🤔
+          </h1>
+          
+          <p className="text-gray-200 text-lg">
+            Google Developer Group Campus is a student-led program supported by Google, offering an inclusive platform
+            for students to explore, learn, and share their passion for technology. It focuses on collaboration in web
+            development, mobile apps, cloud computing, and beyond.
+          </p>
+          
+          <p className="text-gray-200 text-lg">
+            GDGC encourages skill-building, peer-to-peer learning, and networking while granting access to resources and
+            mentorship from industry experts—making it a fantastic opportunity for aspiring tech leaders.
+          </p>
         </div>
 
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
-            EVENTS <span className="text-blue-500">&</span> WORKSHOPS
-          </h2>
+        {/* Info Boxes Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-40">
+          {infoBoxes.map((box, index) => (
+            <Card 
+              key={index} 
+              className={`${box.bgColor} border-2 ${box.borderColor} transition-transform hover:scale-105 relative z-50`}
+            >
+              <CardContent className="p-6">
+                <h2 className={`text-xl font-bold mb-3 ${box.textColor}`}>
+                  {box.title}
+                </h2>
+                <p className="text-gray-800">
+                  {box.content}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-
-        {/* Stats Grid with Decorative Elements */}
-        <div className="relative">
-          {/* Left side confetti - Hidden on mobile, visible on larger screens */}
-       <div className="hidden lg:block absolute left-0 top-0 h-full">
-  <div className="relative w-48 h-full"> {/* Increased width */}
-    <div className="absolute w-12 h-4 md:w-16 md:h-6 bg-pink-400 rotate-45 top-[10%] -left-16" /> {/* Increased size */}
-    <div className="absolute w-8 h-4 md:w-12 md:h-6 bg-green-400 rotate-12 top-[25%] -left-20" /> {/* Increased size */}
-    <div className="absolute w-12 h-4 md:w-16 md:h-6 bg-yellow-400 -rotate-45 top-[40%] -left-12" /> {/* Increased size */}
-    <div className="absolute w-8 h-4 md:w-12 md:h-6 bg-purple-400 rotate-[60deg] top-[55%] -left-16" /> {/* Increased size */}
-    <div className="absolute w-12 h-4 md:w-16 md:h-6 bg-blue-400 -rotate-12 top-[70%] -left-20" /> {/* Increased size */}
-    <div className="absolute w-8 h-4 md:w-12 md:h-6 bg-red-400 rotate-[30deg] top-[85%] -left-12" /> {/* Increased size */}
-  </div>
-</div>
-
-<div className="hidden lg:block absolute right-0 top-0 h-full">
-  <div className="relative w-48 h-full"> {/* Increased width */}
-    <div className="absolute w-12 h-4 md:w-16 md:h-6 bg-pink-400 -rotate-45 top-[10%] -right-16" /> {/* Increased size */}
-    <div className="absolute w-8 h-4 md:w-12 md:h-6 bg-green-400 -rotate-12 top-[25%] -right-20" /> {/* Increased size */}
-    <div className="absolute w-12 h-4 md:w-16 md:h-6 bg-yellow-400 rotate-45 top-[40%] -right-12" /> {/* Increased size */}
-    <div className="absolute w-8 h-4 md:w-12 md:h-6 bg-purple-400 -rotate-[60deg] top-[55%] -right-16" /> {/* Increased size */}
-    <div className="absolute w-12 h-4 md:w-16 md:h-6 bg-blue-400 rotate-12 top-[70%] -right-20" /> {/* Increased size */}
-    <div className="absolute w-8 h-4 md:w-12 md:h-6 bg-red-400 -rotate-[30deg] top-[85%] -right-12" /> {/* Increased size */}
-  </div>
-</div>
-
-          {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center relative z-10">
-            {stats.map((stat, index) => (
-              <div 
-                key={index}
-                className="relative p-6 rounded-lg transition-shadow"
-              >
-                <div className="text-6xl font-bold mb-2 text-gray-900 dark:text-white">
-                  {stat.number}
-                </div>
-                <div className={`text-xl ${stat.textColor} font-semibold`}>
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <UpcomingEvents />
-        <PreviousEvents />
       </div>
     </div>
   );
 };
 
-export default EventsSection;
+export default GDGCPage;

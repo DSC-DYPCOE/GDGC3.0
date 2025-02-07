@@ -14,7 +14,7 @@ const GDGCReveal = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setAnimationComplete(true); // Show home page after animation
-    }, 3000); // Adjust the delay based on animation duration
+    }, 4000); // Adjust the delay based on animation duration
 
     return () => clearTimeout(timer);
   }, []);
@@ -31,7 +31,7 @@ const GDGCReveal = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            {/* <GDGCAnimation /> */}
+            <GDGCAnimation />
           </motion.div>
         ) : (
           <motion.div
