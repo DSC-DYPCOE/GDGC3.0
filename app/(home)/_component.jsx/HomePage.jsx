@@ -6,6 +6,7 @@ import GDGCPage from "@/app/event/page";
 import Image from "next/image";
 import Tech from "@/app/Technology/page";
 import TeamSection from "@/app/team/page";
+import Footer from "../../Footer/page";
 export default function HomePage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-black">
@@ -307,6 +308,7 @@ export default function HomePage() {
       <GDGCPage />
       <Tech />
       <TeamSection />
+      <Footer />
     </div>
   );
 }

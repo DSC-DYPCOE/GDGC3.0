@@ -10,7 +10,7 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
-const teamMembers = [
+const teamMembersLead = [
   {
     id: "GDSC-AJ2023",
     name: "Alex Johnson",
@@ -47,6 +47,46 @@ const teamMembers = [
     badgeColor: "bg-red-400"
   },
 ];
+
+
+const teamMembersCoordinators = [
+  {
+    id: "GDSC-AJ2023",
+    name: "Alex Johnson",
+    role: "GDSC LEAD",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-yellow-400"
+  },
+  {
+    id: "GDSC-SL2023",
+    name: "Sam Lee",
+    role: "TECH LEAD",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-blue-400"
+  },
+  {
+    id: "GDSC-JS2023",
+    name: "Jamie Smith",
+    role: "DESIGN LEAD",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-green-400"
+  },
+  {
+    id: "GDSC-TB2023",
+    name: "Taylor Brown",
+    role: "ML LEAD",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-purple-400"
+  },
+  {
+    id: "GDSC-JP2023",
+    name: "Jordan Patel",
+    role: "WEB LEAD",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+];
+
 
 const IdCard = ({ member }) => {
   return (
@@ -152,58 +192,104 @@ const TeamSection = () => {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-16 text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
+        {/* Heading */}
+        <h2 className="text-4xl font-bold text-center mb-6 text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
           Meet Our Team ⚡
         </h2>
-        
-<Swiper
-  effect="coverflow"
-  grabCursor={true}
-  centeredSlides={true}
-  slidesPerView="auto"
-  spaceBetween={-60}
-  loop={true} // ✅ Enables continuous looping
-  autoplay={{
-    delay: 3500, // 3.5 seconds delay
-    disableOnInteraction: false,
-  }}
-  coverflowEffect={{
-    rotate: 35,
-    stretch: 0,
-    depth: 250,
-    modifier: 1.5,
-    slideShadows: true,
-  }}
-  pagination={{
-    clickable: true,
-    bulletActiveClass: 'swiper-pagination-bullet-active',
-  }}
-  modules={[EffectCoverflow, Pagination, Autoplay]}
-  className="mySwiper"
-  breakpoints={{
-    320: {
-      slidesPerView: 1.5,
-      spaceBetween: -30,
-    },
-    640: {
-      slidesPerView: 2,
-      spaceBetween: -40,
-    },
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: -60,
-    },
-  }}
->
-  {teamMembers.map((member) => (
-    <SwiperSlide key={member.id}>
-      <IdCard member={member} />
-    </SwiperSlide>
-  ))}
-</Swiper>
+
+        {/* Leads Section */}
+        <div className="flex justify-center mb-10">
+          <div className="w-64 px-10 py-4 bg-white rounded-full shadow-md border border-gray-300 text-center">
+            <h1 className="text-2xl font-bold text-black">Leads</h1>
+          </div>
+        </div>
+
+        {/* Swiper for Leads */}
+        <Swiper
+          effect="coverflow"
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView="auto"
+          spaceBetween={-60}
+          loop={true}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
+          coverflowEffect={{
+            rotate: 35,
+            stretch: 0,
+            depth: 250,
+            modifier: 1.5,
+            slideShadows: true,
+          }}
+          pagination={{
+            clickable: true,
+            bulletActiveClass: 'swiper-pagination-bullet-active',
+          }}
+          modules={[EffectCoverflow, Pagination, Autoplay]}
+          className="mySwiper"
+          breakpoints={{
+            320: { slidesPerView: 1.5, spaceBetween: -30 },
+            640: { slidesPerView: 2, spaceBetween: -40 },
+            1024: { slidesPerView: 3, spaceBetween: -60 },
+          }}
+        >
+          {teamMembersLead.map((member) => (
+            <SwiperSlide key={member.id}>
+              <IdCard member={member} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Coordinators Section */}
+        <div className="flex justify-center mt-16 mb-10">
+          <div className="w-64 px-10 py-4 bg-white rounded-full shadow-md border border-gray-300 text-center">
+            <h1 className="text-2xl font-bold text-black">Coordinators</h1>
+          </div>
+        </div>
+
+        {/* Swiper for Coordinators */}
+        <Swiper
+          effect="coverflow"
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView="auto"
+          spaceBetween={-60}
+          loop={true}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
+          coverflowEffect={{
+            rotate: 35,
+            stretch: 0,
+            depth: 250,
+            modifier: 1.5,
+            slideShadows: true,
+          }}
+          pagination={{
+            clickable: true,
+            bulletActiveClass: 'swiper-pagination-bullet-active',
+          }}
+          modules={[EffectCoverflow, Pagination, Autoplay]}
+          className="mySwiper"
+          breakpoints={{
+            320: { slidesPerView: 1.5, spaceBetween: -30 },
+            640: { slidesPerView: 2, spaceBetween: -40 },
+            1024: { slidesPerView: 3, spaceBetween: -60 },
+          }}
+        >
+          {teamMembersCoordinators.map((member) => (
+            <SwiperSlide key={member.id}>
+              <IdCard member={member} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );
 };
+
 
 export default TeamSection;
