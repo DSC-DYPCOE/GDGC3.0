@@ -287,7 +287,7 @@ export default function HomePage() {
         </button>
       </div> */}
       <div className="relative min-h-screen bg-black">
-      {/* <NavigationMenu /> */}
+      <NavigationMenu />
 
       {/* Image just above the "Google Developer Groups" title */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4 mb-8">

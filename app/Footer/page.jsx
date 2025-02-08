@@ -5,7 +5,7 @@ import { Twitter, Discord, Facebook, Linkedin, Github, Instagram, Youtube } from
 
 const Footer = () => {
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white" id='ContactPage'>
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Logo Section */}
         <div className="flex justify-center mb-12">

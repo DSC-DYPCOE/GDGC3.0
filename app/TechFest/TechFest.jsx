@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const TechFestPage = () => {
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden" id='TechfestPage'>
       {/* Main content */}
       <div className="relative z-10 container mx-auto px-4 py-8">
         <div className="flex flex-col items-center">

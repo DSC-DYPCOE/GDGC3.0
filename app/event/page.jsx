@@ -34,7 +34,7 @@ const GDGCPage = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-transparent p-8 z-20">
+    <div className="relative min-h-screen bg-transparent p-8 z-20" id='InfoPage'>
       <div className="max-w-4xl mx-auto space-y-8 relative z-30">
         {/* Header Section */}
         <div className="text-center space-y-6">

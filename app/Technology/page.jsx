@@ -8,7 +8,7 @@ import CompetitiveProgrammingHero from "./_components/Compitative";
 
 const Tech = () => {
   return (
-    <div className="mt-20">
+    <div className="mt-20" id="TechnologyPage">
       <h1 className="text-4xl font-bold text-center mb-8 text-white">
         Technologies We are Interested in!
       </h1>
