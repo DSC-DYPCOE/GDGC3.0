@@ -1,12 +1,14 @@
 "use client";
 // SingleLineCircle
 import React from "react";
+import NavigationMenu from "@/app/NavigationMenu/page";
 import { Menu } from "lucide-react";
 import GDGCPage from "@/app/event/page";
 import Image from "next/image";
 import Tech from "@/app/Technology/page";
 import TeamSection from "@/app/team/page";
 import Footer from "../../Footer/page";
+import TechFestPage from "@/app/TechFest/TechFest";
 export default function HomePage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-black">
@@ -19,12 +21,13 @@ export default function HomePage() {
           height={200}
           className="absolute top-[0.5%] left-[15%] transform rotate-[25deg] "
         />
+        {/* Left side of the Top Yellow Circle */}
         <Image
           src="/Ellipse91.png"
           alt="Network Graph 1"
           width={42}
           height={200}
-          className="absolute top-[5.5%] left-[5%] transform rotate-[25deg] "
+          className="absolute top-[3.7%] left-[5%] transform rotate-[25deg] "
         />
 
         <Image
@@ -32,7 +35,7 @@ export default function HomePage() {
                   alt="Network Graph 1"
                   width={40}
                   height={200}
-                  className="absolute top-[3%] left-[55%] transform rotate-[25deg] "
+                  className="absolute top-[1.5%] left-[55%] transform rotate-[25deg] "
                 />
 
         <Image
@@ -40,7 +43,7 @@ export default function HomePage() {
           alt="Network Graph 2"
           width={80}
           height={150}
-          className="absolute top-[3.5%] left-[24%] transform -rotate-12 "
+          className="absolute top-[2.5%] left-[24%] transform -rotate-12 "
         />
         {/* <Image
           src="/Ellipse91.png"
@@ -61,7 +64,7 @@ export default function HomePage() {
           alt="Network Graph 5"
           width={400}
           height={160}
-          className="absolute top-[8.6%] left-[8%] transform rotate-[-5deg]"
+          className="absolute top-[6%] left-[8%] transform rotate-[-5deg]"
         />
         {/* This one is the single chain which present between the yello circle of the right side-Right side of Circle */}
         <Image
@@ -69,7 +72,7 @@ export default function HomePage() {
           alt="Network Graph 6"
           width={85}
           height={140}
-          className="absolute top-[4.2%] left-[74%] transform -rotate-[240deg]"
+          className="absolute top-[2.9%] left-[74%] transform -rotate-[240deg]"
         />
     {/* /* this is between the yello circle which are on the right side--Left Side of the circle */ }
         <Image
@@ -77,16 +80,16 @@ export default function HomePage() {
           alt="Network Graph 6"
           width={75}
           height={140}
-          className="absolute top-[4%] left-[67%] transform -rotate-[-10deg] "
+          className="absolute top-[2.8%] left-[67.2%] transform -rotate-[-10deg] "
         />
 
-        {/* /* this is at the bottom of the right side with the yellow circlw */ }
+        {/* /* this is at the bottom of the right side with the blue  circlw */ }
         <Image
           src="/SingleLineCircle.png"
           alt="Network Graph 6"
           width={160}
           height={140}
-          className="absolute top-[12.4%] left-[66.8%] transform -rotate-[-180deg] "
+          className="absolute top-[8.9%] left-[66.8%] transform -rotate-[-180deg] "
         />
       </div>
 
@@ -278,11 +281,13 @@ export default function HomePage() {
         />
       </div>
 
-      <div className="absolute top-6 right-6 z-10">
+      {/* <div className="absolute top-6 right-6 z-10">
         <button className="text-white p-3 hover:bg-white/10 rounded-full transition-colors duration-300">
           <Menu className="w-6 h-6" />
         </button>
-      </div>
+      </div> */}
+      <div className="relative min-h-screen bg-black">
+      {/* <NavigationMenu /> */}
 
       {/* Image just above the "Google Developer Groups" title */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4 mb-8">
@@ -304,11 +309,13 @@ export default function HomePage() {
           </span>
         </div>
       </div>
-
+        </div>
       <GDGCPage />
       <Tech />
+      <TechFestPage />
       <TeamSection />
       <Footer />
     </div>
+    
   );
 }
