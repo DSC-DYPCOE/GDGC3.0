@@ -1,8 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react"
 import { motion, useAnimation, AnimatePresence } from "framer-motion"
-import SecondScene from "./Second.Scene.jsx";
-import ThirdScene from "./ThirdScene.jsx";
+
 // Enhanced letter animation variants with floating effect
 const letterVariants = {
   hidden: { y: 150, opacity: 0, scale: 0, rotate: -20 },

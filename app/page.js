@@ -9,8 +9,9 @@ import Info from "./event/page";
 export default function page() {
   return (
     <div className="w-full min-h-screen">
-      {/* <GDGPreloader /> */}
-      <HomePage />
+      {/* /This GDGPreloader Directly Load the HomePage after animation is done/ */}
+      <GDGPreloader />
+      {/* <HomePage /> */}
       
       
     </div>
