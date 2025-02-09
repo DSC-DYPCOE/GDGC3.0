@@ -298,18 +298,19 @@ export default function HomePage() {
           height={250}
           className="rounded-full mb-2" // Reduced margin-bottom for the image
         />
-        <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight">
+       <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
           Google Developer Groups
         </h1>
-        <div className="flex items-center gap-3 text-xl md:text-2xl font-medium">
+        
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-lg sm:text-xl lg:text-2xl font-medium">
           <span className="text-[#4285F4]">On Campus</span>
-          <span className="text-white/80">•</span>
-          <span className="text-white">
+          <span className="hidden sm:block text-white/80">•</span>
+          <span className="text-white text-center">
             D. Y. Patil College Of Engineering-Pune
           </span>
         </div>
       </div>
-        </div>
+      </div>
       <GDGCPage />
       <Tech />
       <TechFestPage />

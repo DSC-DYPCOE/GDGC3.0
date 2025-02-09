@@ -63,11 +63,11 @@ const CompetitiveProgrammingHero = () => {
             data-aos="zoom-in"
             data-aos-delay="300"
           >
-            <div className="w-32 h-32 md:w-58 md:h-48 rounded-full flex items-center justify-center shadow-lg">
-              <Image
+            <div className="w-40 h-35 md:w-48 md:h-48 rounded-full flex items-center justify-center shadow-lg">
+            <Image
                 src="/Compitative.png"
                 alt="Competitive Programming"
-                width={280}
+                width={370}
                 height={160}
                 className="text-[#F4B400] scale-75 md:scale-100"
                 data-aos="fade-in"

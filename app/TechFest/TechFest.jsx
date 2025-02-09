@@ -8,12 +8,16 @@ const TechFestPage = () => {
       <div className="relative z-10 container mx-auto px-4 py-8">
         <div className="flex flex-col items-center">
           {/* Title section */}
-          <h1 className="text-5xl font-bold text-white mb-12 flex items-center gap-3">
-            Techfest 2k25
-            <span role="img" aria-label="rocket" className="animate-bounce">
-              🚀
-            </span>
-          </h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8 md:mb-10 lg:mb-12 flex items-center gap-2 sm:gap-3">
+  Techfest 2k25
+  <span 
+    role="img" 
+    aria-label="rocket" 
+    className="animate-bounce text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+  >
+    🚀
+  </span>
+</h1>
 
           {/* Cards Section */}
           <div className="flex gap-6 justify-center flex-wrap max-w-5xl">

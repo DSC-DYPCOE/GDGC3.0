@@ -12,38 +12,115 @@ import 'swiper/css/pagination';
 
 const teamMembersLead = [
   {
-    id: "GDSC-AJ2023",
-    name: "Alex Johnson",
+    id: "GDSC-AJ20231",
+    name: "Prajwal Sanap",
     role: "GDSC LEAD",
-    image: "/SundarBOI.png",
+    image: "/Lead/Prajwal.png",
     badgeColor: "bg-yellow-400"
   },
   {
-    id: "GDSC-SL2023",
-    name: "Sam Lee",
-    role: "TECH LEAD",
-    image: "/SundarBOI.png",
+    id: "GDSC-SL20232",
+    name: "Sarvesh Varadkar",
+    role: "AI/ML Lead",
+    image: "/Lead/Sarvesh.png",
     badgeColor: "bg-blue-400"
   },
   {
-    id: "GDSC-JS2023",
-    name: "Jamie Smith",
-    role: "DESIGN LEAD",
-    image: "/SundarBOI.png",
+    id: "GDSC-JS20233",
+    name: "Digvijay Mangaokar",
+    role: "Web Lead",
+    image: "/Lead/Digvijay.png",
     badgeColor: "bg-green-400"
   },
   {
-    id: "GDSC-TB2023",
-    name: "Taylor Brown",
+    id: "GDSC-TB20234",
+    name: "Aniket Bhor",
     role: "ML LEAD",
     image: "/SundarBOI.png",
     badgeColor: "bg-purple-400"
   },
   {
-    id: "GDSC-JP2023",
-    name: "Jordan Patel",
-    role: "WEB LEAD",
+    id: "GDSC-JP20235",
+    name: "Piyush Patil",
+    role: "CP/DSA Lead",
+    image: "/Lead/Piyush.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP20236",
+    name: "Rahul Wagh",
+    role: "Cybersecurity Lead",
+    image: "/Lead/Rahul.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP20237",
+    name: "Tejas Ellansandry",
+    role: "Android Lead",
+    image: "/Lead/Tejas.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP20238",
+    name: "Shantanu Pokale",
+    role: "Documentation/Management Lead",
+    image: "/Lead/shantanu.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP20239",
+    name: "Sachita Hangloo",
+    role: "Documentation/Management Lead",
+    image: "/Lead/Sachita.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP2023510",
+    name: "Charvi Humane",
+    role: "Documentation/Management Lead",
+    image: "/Lead/Charvi.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP2023511",
+    name: "Samiksha Borude",
+    role: "Documentation/Management Lead",
+    image: "/Lead/samiksha.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP2023512",
+    name: "Atharva Wani",
+    role: "Design Lead",
+    image: "/Lead/Atharva.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP2023513",
+    name: "Sanika Kalaskar",
+    role: "Design Lead",
+    image: "/Lead/Sanika.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP2023514",
+    name: "Shrirang Vaidya",
+    role: "Media Lead",
     image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP2023515",
+    name: "Tanya Singh",
+    role: "PR Lead",
+    image: "/Lead/Tanya.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP2023516",
+    name: "Arya Marawar",
+    role: "PR Lead",
+    image: "/Lead/Arya.png",
     badgeColor: "bg-red-400"
   },
 ];
@@ -51,40 +128,138 @@ const teamMembersLead = [
 
 const teamMembersCoordinators = [
   {
-    id: "GDSC-AJ2023",
-    name: "Alex Johnson",
-    role: "GDSC LEAD",
-    image: "/SundarBOI.png",
-    badgeColor: "bg-yellow-400"
-  },
-  {
-    id: "GDSC-SL2023",
-    name: "Sam Lee",
-    role: "TECH LEAD",
-    image: "/SundarBOI.png",
-    badgeColor: "bg-blue-400"
-  },
-  {
-    id: "GDSC-JS2023",
-    name: "Jamie Smith",
-    role: "DESIGN LEAD",
+    id: "GDSC-JS20231",
+    name: "Tanmay Joshi",
+    role: "Web Coordinator",
     image: "/SundarBOI.png",
     badgeColor: "bg-green-400"
   },
   {
-    id: "GDSC-TB2023",
-    name: "Taylor Brown",
-    role: "ML LEAD",
+    id: "GDSC-TB20232",
+    name: "Om Salunke",
+    role: "Web Coordinator",
     image: "/SundarBOI.png",
     badgeColor: "bg-purple-400"
   },
   {
-    id: "GDSC-JP2023",
-    name: "Jordan Patel",
-    role: "WEB LEAD",
+    id: "GDSC-JP20233",
+    name: "Shipra Bhanja",
+    role: "AIML Coordinator",
     image: "/SundarBOI.png",
     badgeColor: "bg-red-400"
   },
+  {
+    id: "GDSC-JP20234",
+    name: "Ghanesh Dhadke",
+    role: "Claude Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP20235",
+    name: "Dhanesh Shingade",
+    role: "Claude Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP20236",
+    name: "Varun Nagote",
+    role: "CP/DSA Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP20237",
+    name: "Vishwambhar Wazarkar",
+    role: "CP/DSA Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP20238",
+    name: "Dilip Chaudhary",
+    role: "CyberSecurity Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP20239",
+    name: "Abhishiek Kumavat",
+    role: "CyberSecurity Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP202310",
+    name: "Atharva Jagtap",
+    role: "Android Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP202311",
+    name: "Kaushal Abjowar",
+    role: "Design Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP202312",
+    name: "Maithili Mahesh",
+    role: "Design Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP202313",
+    name: "Sanjana Gupta",
+    role: "Management Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP202314",
+    name: "Ausin Loyd",
+    role: "Management Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP202315",
+    name: "Manas Mishra",
+    role: "PR Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP202316",
+    name: "Ankita Awatade",
+    role: "PR Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP202317",
+    name: "Janvahi Ghanghav",
+    role: "Documentation Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP202318",
+    name: "Sujal Patil",
+    role: "Media Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  },
+  {
+    id: "GDSC-JP202319",
+    name: "Pranav Gaikwad",
+    role: "Media Coordinator",
+    image: "/SundarBOI.png",
+    badgeColor: "bg-red-400"
+  }
 ];
 const IdCard = ({ member }) => {
   return (

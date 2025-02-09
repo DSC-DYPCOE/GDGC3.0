@@ -17,6 +17,7 @@ const letterVariants = {
     },
   }),
 };
+
 // Particle Effect Component
 const ParticleEffect = ({ count = 50 }) => {
   return (
@@ -137,21 +138,34 @@ const LightningEffect = () => {
     />
   );
 };
+
 // Main Component
 const GDGCAnimation = () => {
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [currentScene, setCurrentScene] = useState(1)
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [currentScene, setCurrentScene] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true)
+    // Check if the screen width is less than 768px (mobile)
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+
+    setIsLoaded(true);
 
     // Sequence the scene transition
     const timer = setTimeout(() => {
-      setCurrentScene(2)
-    }, 5000) // Adjust timing as needed
+      setCurrentScene(2);
+    }, 5000); // Adjust timing as needed
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className="fixed inset-0 bg-black overflow-hidden">
@@ -206,7 +220,9 @@ const GDGCAnimation = () => {
                     animate="visible"
                   >
                     <motion.span
-                      className="text-[15rem] font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-200 to-white mx-8"
+                      className={`${
+                        isMobile ? "text-[6rem]" : "text-[15rem]"
+                      } font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-200 to-white mx-4 sm:mx-8`}
                       style={{
                         filter: "drop-shadow(0 0 20px rgba(255,255,255,0.7))",
                         WebkitTextStroke: "3px rgba(255,255,255,0.9)",
@@ -291,10 +307,7 @@ const GDGCAnimation = () => {
         {currentScene === 2 && <ThirdScene />} */}
       </AnimatePresence>
     </div>
+  );
+};
 
-
-
-  )
-}
-
-export default GDGCAnimation
+export default GDGCAnimation;
