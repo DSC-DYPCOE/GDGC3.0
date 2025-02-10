@@ -7,7 +7,7 @@ import 'aos/dist/aos.css';
 const CyberSecurityHero = () => {
   useEffect(() => {
     AOS.init({
-      duration: 800,
+      duration: 450,
       once: true,
       disable: false,
       startEvent: 'DOMContentLoaded',
