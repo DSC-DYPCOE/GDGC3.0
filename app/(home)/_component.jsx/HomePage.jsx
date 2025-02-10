@@ -296,7 +296,8 @@ export default function HomePage() {
           alt="Your Image"
           width={220}
           height={250}
-          className="rounded-full mb-2" // Reduced margin-bottom for the image
+          className="rounded-full mb-2"
+          loading="lazy" // Reduced margin-bottom for the image
         />
        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
           Google Developer Groups

@@ -40,6 +40,7 @@ const CyberSecurityHero = () => {
                 className="text-[#0F9D58] scale-75 md:scale-100"
                 data-aos="fade-in"
                 data-aos-delay="500"
+                 loading="lazy"
               />
             </div>
           </div>

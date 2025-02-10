@@ -37,6 +37,7 @@ const TechFestPage = () => {
                   height={600}
                   className="object-cover"
                   priority
+                  
                 />
               </div>
             </div>
