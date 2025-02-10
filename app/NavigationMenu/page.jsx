@@ -1,11 +1,15 @@
+"use client";
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const NavigationMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState('/');
+  const [isClient, setIsClient] = useState(false); // Track if we're on the client side
 
   useEffect(() => {
+    // This will run only on the client side, as window and document are available
+    setIsClient(true);
     setActiveMenu(window.location.pathname);
   }, []);
 
@@ -19,9 +23,11 @@ const NavigationMenu = () => {
 
   const scrollToSection = (id) => {
     setIsOpen(false); // Close menu
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (isClient) { // Ensure we access document only on the client side
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
@@ -66,17 +72,13 @@ const NavigationMenu = () => {
                 >
                   <div className="flex items-center justify-center gap-3">
                     <span className="text-2xl">{item.icon}</span>
-                    <span className={`text-white text-lg font-medium ${
-                      activeMenu === item.id ? 'text-blue-400' : ''
-                    }`}>
+                    <span className={`text-white text-lg font-medium ${activeMenu === item.id ? 'text-blue-400' : ''}`}>
                       {item.name}
                     </span>
                   </div>
                   
                   {/* Animated underline */}
-                  <div className={`absolute bottom-0 left-0 h-0.5 w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transform transition-transform duration-300 ${
-                    activeMenu === item.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                  }`} />
+                  <div className={`absolute bottom-0 left-0 h-0.5 w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transform transition-transform duration-300 ${activeMenu === item.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
                   
                   {/* Hover effect overlay */}
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-pink-500/0 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />

@@ -10,7 +10,7 @@ import Button from './_components/Button';
 import emailjs from '@emailjs/browser';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import classes from './_components/ContactUs.module.css'; // Make sure the correct path is used
+import classes from './_components/ContactUs.module.css';
 
 export default function ContactUs() {
     const form = useRef();
@@ -23,28 +23,32 @@ export default function ContactUs() {
     // Manage theme state
     const [theme, setTheme] = useState('light');
 
-    // Check and apply theme on initial render
     useEffect(() => {
-        // Check for saved theme in localStorage
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            setTheme(savedTheme);
-            document.body.classList.add(savedTheme); // Apply theme class to body
-        } else {
-            document.body.classList.add('light'); // Default to light theme
-        }
+        // Ensure this code runs only on the client side
+        if (typeof window !== 'undefined') {
+            // Check for saved theme in localStorage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+                document.body.classList.add(savedTheme); // Apply theme class to body
+            } else {
+                document.body.classList.add('light'); // Default to light theme
+            }
 
-        // Initialize AOS animation library
-        AOS.init({ duration: 800 });
+            // Initialize AOS animation library
+            AOS.init({ duration: 800 });
+        }
     }, []);
 
     // Toggle theme function
     const toggleTheme = () => {
         const newTheme = theme === 'dark' ? 'light' : 'dark';
         setTheme(newTheme);
-        document.body.classList.remove(theme);
-        document.body.classList.add(newTheme);
-        localStorage.setItem('theme', newTheme); // Save theme to localStorage
+        if (typeof window !== 'undefined') {
+            document.body.classList.remove(theme);
+            document.body.classList.add(newTheme);
+            localStorage.setItem('theme', newTheme); // Save theme to localStorage
+        }
     };
 
     // Form submission handler
@@ -62,7 +66,6 @@ export default function ContactUs() {
 
     return (
         <div className={`${classes.mainb} ${theme === 'light' ? classes.light : classes.dark}`}>
-            {/* <Image src={entop} alt="Email top" className={classes.emailtop} data-aos="fade-down" data-aos-duration="800" /> */}
             <Image src={enbottom} alt="Email bottom" className={classes.emailbottom} data-aos="fade-up" data-aos-duration="800" />
             <Image src={contactbg} alt="Contact background" className={classes.bg_only} data-aos="fade-right" data-aos-delay="800" />
             <Image src={bgg} alt="Green background" className={classes.greenbg} />

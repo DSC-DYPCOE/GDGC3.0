@@ -17,11 +17,13 @@ import webAnimation from "../../../public/web.json";
 export default function TechSection() {
   const [theme, setTheme] = useState("light");
 
-  // Detect system theme and apply it
+  // Detect system theme and apply it only on the client-side
   useEffect(() => {
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setTheme(prefersDark ? "dark" : "light");
-    document.documentElement.classList.add(prefersDark ? "dark" : "light");
+    if (typeof window !== "undefined") {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(prefersDark ? "dark" : "light");
+      document.documentElement.classList.add(prefersDark ? "dark" : "light");
+    }
   }, []);
 
   const technologies = [
@@ -109,9 +111,7 @@ export default function TechSection() {
     <div className="py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2
-            className={`text-3xl font-bold text-black dark:text-white tracking-tight `}
-        >
+          <h2 className={`text-3xl font-bold text-black dark:text-white tracking-tight `}>
             Technologies We Are Excited About
           </h2>
           <p className={`mt-4 text-lg ${theme === "dark" ? "text-gray-400" : "text-gray-500"}`}>
@@ -140,9 +140,7 @@ export default function TechSection() {
               className={`${tech.bgColor} rounded-lg overflow-hidden`}
             >
               <div
-                className={`p-8 ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                } flex flex-col md:items-center gap-8`}
+                className={`p-8 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} flex flex-col md:items-center gap-8`}
               >
                 <div className="flex-1 space-y-4">
                   <tech.icon className={`w-16 h-16 ${tech.textColor}`} />
