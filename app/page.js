@@ -10,8 +10,8 @@ export default function page() {
   return (
     <div className="w-full min-h-screen">
       {/* /This GDGPreloader Directly Load the HomePage after animation is done/ */}
-      {/* <GDGPreloader /> */}
-      <HomePage />
+      <GDGPreloader />
+      {/* <HomePage /> */}
       
       
     </div>

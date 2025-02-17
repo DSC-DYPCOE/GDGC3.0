@@ -64,7 +64,7 @@ const teamMembersLead = [
     id: "GDSC-JP20238",
     name: "Shantanu Pokale",
     role: "Documentation/Management Lead",
-    image: "/Lead/shantanu.png",
+    image: "/SundarBOI.png",
     badgeColor: "bg-red-400"
   },
   {
@@ -78,14 +78,14 @@ const teamMembersLead = [
     id: "GDSC-JP2023510",
     name: "Charvi Humane",
     role: "Documentation/Management Lead",
-    image: "/Lead/Charvi.png",
+    image: "/SundarBOI.png",
     badgeColor: "bg-red-400"
   },
   {
     id: "GDSC-JP2023511",
     name: "Samiksha Borude",
     role: "Documentation/Management Lead",
-    image: "/Lead/samiksha.png",
+    image: "/SundarBOI.png",
     badgeColor: "bg-red-400"
   },
   {
@@ -272,9 +272,9 @@ const IdCard = ({ member }) => {
         {/* Left content */}
         <div className="flex-1 p-4 md:p-6 relative">      
           {/* Content */}
-          <div className="relative z-10">
+          <div className="relative z-10 flex flex-col items-center md:items-start">
             {/* Logo image */}
-            <div className="mb-4 relative">
+            <div className="mb-4 relative flex justify-center md:justify-start w-full">
               {/* Top yellow part */}
               <div
                 className="absolute w-[100px] h-[27px] bg-[#F4B400F0] rounded-full mx-auto hidden md:block"
@@ -295,7 +295,7 @@ const IdCard = ({ member }) => {
               </div>
             </div>
 
-            <div className="mb-4">
+            <div className="mb-4 text-center md:text-left">
               <h2 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight">
                 {member.name.split(' ')[0].toUpperCase()}
               </h2>
@@ -304,7 +304,7 @@ const IdCard = ({ member }) => {
               </h2>
             </div>
             
-            <div className="space-y-2">
+            <div className="space-y-2 text-center md:text-left">
               <div>
                 <h3 className="text-base md:text-lg font-bold text-gray-900">{member.role}</h3>
                 <div className="absolute top-0 left-0 w-full z-[2] hidden md:block" style={{ left: "-150px" }}>
@@ -324,7 +324,7 @@ const IdCard = ({ member }) => {
         </div>
 
         {/* Right side image */}
-        <div className="w-full md:w-1/2 h-48 md:h-full overflow-hidden relative">
+        <div className="w-full md:w-1/2 h-48 md:h-full overflow-hidden relative mt-4 md:mt-0">
           {/* Red Shape */}
           <div
             className="absolute w-[120px] h-[35px] bg-[#EA4335] rounded-full mx-auto z-0 hidden md:block"
@@ -348,7 +348,7 @@ const IdCard = ({ member }) => {
           <img
             src={member.image}
             alt={member.name}
-            className="w-full h-full object-cover z-10 relative"
+            className="w-full h-full object-cover object-top z-10 relative"
           />
         </div>
       </div>
