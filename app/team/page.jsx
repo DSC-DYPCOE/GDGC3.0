@@ -261,21 +261,25 @@ const teamMembersCoordinators = [
     badgeColor: "bg-red-400"
   }
 ];
+
+
+
+
 const IdCard = ({ member }) => {
   return (
     <div 
-      style={{ maxWidth: '478.36px', width: '100%', height: 'auto', minHeight: '269.89px' }} 
-      className="rounded-xl overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300" id='TeamPage'
+      style={{ maxWidth: '478.36px', width: '100%', height: 'auto' }} 
+      className="rounded-xl overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300 md:mt-0 mt-4" id='TeamPage'
     >
       {/* Main content */}
       <div className="flex flex-col md:flex-row h-full bg-gray-50 relative">
-        {/* Left content */}
-        <div className="flex-1 p-4 md:p-6 relative">      
+        {/* Left content - reduced top margin on mobile */}
+        <div className="flex-1 p-4 md:p-6 relative mt-1 md:mt-0">      
           {/* Content */}
           <div className="relative z-10 flex flex-col items-center md:items-start">
             {/* Logo image */}
-            <div className="mb-4 relative flex justify-center md:justify-start w-full">
-              {/* Top yellow part */}
+            <div className="mb-2 md:mb-4 relative flex justify-center md:justify-start w-full">
+              {/* Top yellow part - Hidden on mobile, visible on md and up */}
               <div
                 className="absolute w-[100px] h-[27px] bg-[#F4B400F0] rounded-full mx-auto hidden md:block"
                 style={{
@@ -286,7 +290,7 @@ const IdCard = ({ member }) => {
                 }}
               />
 
-              <div className="w-12 md:w-14 h-12 md:h-14 rounded-lg flex items-center justify-center">
+              <div className="w-10 md:w-14 h-10 md:h-14 rounded-lg flex items-center justify-center">
                 <img 
                   src="/GDGC_Icon.png"
                   alt="Logo"
@@ -295,20 +299,20 @@ const IdCard = ({ member }) => {
               </div>
             </div>
 
-            <div className="mb-4 text-center md:text-left">
+            <div className="mb-2 md:mb-4 text-center md:text-left">
               <h2 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight">
                 {member.name.split(' ')[0].toUpperCase()}
               </h2>
               <h2 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight">
-                {member.name.split(' ')[1].toUpperCase()}
+                {member.name.split(' ')[1] ? member.name.split(' ')[1].toUpperCase() : ''}
               </h2>
             </div>
             
-            <div className="space-y-2 text-center md:text-left">
+            <div className="space-y-1 md:space-y-2 text-center md:text-left">
               <div>
                 <h3 className="text-base md:text-lg font-bold text-gray-900">{member.role}</h3>
+                {/* Green part - hidden on mobile */}
                 <div className="absolute top-0 left-0 w-full z-[2] hidden md:block" style={{ left: "-150px" }}>
-                  {/* Green part at the bottom */}
                   <div
                     className="w-[250px] h-[35px] bg-[#30A953] rounded-full mx-auto"
                     style={{
@@ -323,9 +327,9 @@ const IdCard = ({ member }) => {
           </div>
         </div>
 
-        {/* Right side image */}
-        <div className="w-full md:w-1/2 h-48 md:h-full overflow-hidden relative mt-4 md:mt-0">
-          {/* Red Shape */}
+        {/* Right side image - reduced top margin and bottom margin on mobile */}
+        <div className="w-full md:w-1/2 h-60 md:h-full overflow-hidden relative mt-1 md:mt-0 mb-1 md:mb-0">
+          {/* Red Shape - hidden on mobile */}
           <div
             className="absolute w-[120px] h-[35px] bg-[#EA4335] rounded-full mx-auto z-0 hidden md:block"
             style={{
@@ -335,7 +339,7 @@ const IdCard = ({ member }) => {
               transformOrigin: "center bottom",
             }}
           />
-          {/* Blue Shape */}
+          {/* Blue Shape - hidden on mobile */}
           <div
             className="absolute w-[180px] h-[35px] bg-[#4286F5] rounded-full mx-auto z-0 hidden md:block"
             style={{
@@ -345,11 +349,15 @@ const IdCard = ({ member }) => {
               transformOrigin: "center bottom",
             }}
           />
-          <img
-            src={member.image}
-            alt={member.name}
-            className="w-full h-full object-cover object-top z-10 relative"
-          />
+          {/* Image container with better mobile handling */}
+          <div className="relative w-full h-full">
+            <img
+              src={member.image}
+              alt={member.name}
+              className="w-full h-full object-cover z-10"
+              style={{ objectPosition: 'center 10%' }} // Adjusted to show more of the top part of the image
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -372,23 +380,23 @@ const TeamSection = () => {
           </div>
         </div>
 
-        {/* Swiper for Leads */}
+        {/* Swiper for Leads - Improved for mobile */}
         <Swiper
           effect="coverflow"
           grabCursor={true}
           centeredSlides={true}
           slidesPerView="auto"
-          spaceBetween={-30}
+          spaceBetween={20} // Increased spacing for better mobile view
           loop={true}
           autoplay={{
             delay: 3500,
             disableOnInteraction: false,
           }}
           coverflowEffect={{
-            rotate: 35,
+            rotate: 30, // Reduced rotation for better image visibility
             stretch: 0,
-            depth: 250,
-            modifier: 1.5,
+            depth: 200,
+            modifier: 1,
             slideShadows: true,
           }}
           pagination={{
@@ -398,14 +406,14 @@ const TeamSection = () => {
           modules={[EffectCoverflow, Pagination, Autoplay]}
           className="mySwiper"
           breakpoints={{
-            320: { slidesPerView: 1.2, spaceBetween: -20 },
-            480: { slidesPerView: 1.5, spaceBetween: -30 },
-            640: { slidesPerView: 2, spaceBetween: -40 },
-            1024: { slidesPerView: 3, spaceBetween: -60 },
+            320: { slidesPerView: 1, spaceBetween: 20 }, // Single view on small mobile
+            480: { slidesPerView: 1.1, spaceBetween: 20 }, // Better spacing for mobile
+            640: { slidesPerView: 1.5, spaceBetween: 30 }, // Better spacing for tablets
+            1024: { slidesPerView: 2.5, spaceBetween: 40 }, // Better desktop view
           }}
         >
           {teamMembersLead.map((member) => (
-            <SwiperSlide key={member.id}>
+            <SwiperSlide key={member.id} className="py-6 px-4"> {/* Increased padding for better spacing */}
               <IdCard member={member} />
             </SwiperSlide>
           ))}
@@ -418,23 +426,23 @@ const TeamSection = () => {
           </div>
         </div>
 
-        {/* Swiper for Coordinators */}
+        {/* Swiper for Coordinators - Improved for mobile */}
         <Swiper
           effect="coverflow"
           grabCursor={true}
           centeredSlides={true}
           slidesPerView="auto"
-          spaceBetween={-30}
+          spaceBetween={20} // Increased spacing for better mobile view
           loop={true}
           autoplay={{
             delay: 3500,
             disableOnInteraction: false,
           }}
           coverflowEffect={{
-            rotate: 35,
+            rotate: 30, // Reduced rotation for better image visibility
             stretch: 0,
-            depth: 250,
-            modifier: 1.5,
+            depth: 200,
+            modifier: 1,
             slideShadows: true,
           }}
           pagination={{
@@ -444,19 +452,68 @@ const TeamSection = () => {
           modules={[EffectCoverflow, Pagination, Autoplay]}
           className="mySwiper"
           breakpoints={{
-            320: { slidesPerView: 1.2, spaceBetween: -20 },
-            480: { slidesPerView: 1.5, spaceBetween: -30 },
-            640: { slidesPerView: 2, spaceBetween: -40 },
-            1024: { slidesPerView: 3, spaceBetween: -60 },
+            320: { slidesPerView: 1, spaceBetween: 20 }, // Single view on small mobile
+            480: { slidesPerView: 1.1, spaceBetween: 20 }, // Better spacing for mobile
+            640: { slidesPerView: 1.5, spaceBetween: 30 }, // Better spacing for tablets
+            1024: { slidesPerView: 2.5, spaceBetween: 40 }, // Better desktop view
           }}
         >
           {teamMembersCoordinators.map((member) => (
-            <SwiperSlide key={member.id}>
+            <SwiperSlide key={member.id} className="py-6 px-4"> {/* Increased padding for better spacing */}
               <IdCard member={member} />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
+
+      {/* Add custom styles for better mobile experience */}
+      <style jsx global>{`
+        .swiper-slide {
+          display: flex;
+          justify-content: center;
+          transform-style: preserve-3d;
+        }
+        
+        @media (max-width: 768px) {
+          .swiper-pagination {
+            position: relative;
+            margin-top: 30px;
+            bottom: 0 !important;
+          }
+          
+          .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            margin: 0 6px !important;
+          }
+          
+          /* Fix for coverflow effect cutting off images */
+          .swiper-slide-active {
+            z-index: 2;
+          }
+          
+          /* Ensure the container has enough height */
+          .mySwiper {
+            padding-top: 10px;
+            padding-bottom: 50px;
+            min-height: 400px; /* Slightly reduced height for mobile */
+          }
+          
+          /* Added margin for container only on mobile */
+          #TeamPage {
+            margin-top: 12px !important;
+          }
+          
+          /* Additional styles to reduce gap between info and image on mobile */
+          #TeamPage .flex-col > div:first-child {
+            padding-bottom: 0; /* Reduce bottom padding on info section */
+          }
+          
+          #TeamPage .flex-col > div:last-child {
+            padding-top: 0; /* Reduce top padding on image section */
+          }
+        }
+      `}</style>
     </section>
   );
 };
