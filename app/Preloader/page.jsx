@@ -7,6 +7,8 @@ import DomainShowcase from "./_components/GDGC_Domain";
 import FaqSection from "./_components/FreqenlyAsk";
 import Footer from "./_components/Ending";
 import Home from "../(home)/_component.jsx/Home";
+import PageLoader from "next/dist/client/page-loader";
+import Preloader from "./_components/GDGC_Preloader";
 const GDGCReveal = () => {
   const [currentSection, setCurrentSection] = useState(0);
   const [animationComplete, setAnimationComplete] = useState(false);
@@ -31,7 +33,7 @@ const GDGCReveal = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <GDGCAnimation />
+            <Preloader />
           </motion.div>
         ) : (
           <motion.div
