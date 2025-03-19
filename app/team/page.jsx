@@ -64,7 +64,7 @@ const teamMembersLead = [
     id: "GDSC-JP20238",
     name: "Shantanu Pokale",
     role: "Documentation/Management Lead",
-    image: "/SundarBOI.png",
+    image: "/Lead/Shantanu.png",
     badgeColor: "bg-red-400"
   },
   {
@@ -85,7 +85,7 @@ const teamMembersLead = [
     id: "GDSC-JP2023511",
     name: "Samiksha Borude",
     role: "Documentation/Management Lead",
-    image: "/SundarBOI.png",
+    image: "/Lead/Samiksha.jpg",
     badgeColor: "bg-red-400"
   },
   {
@@ -106,7 +106,7 @@ const teamMembersLead = [
     id: "GDSC-JP2023514",
     name: "Shrirang Vaidya",
     role: "Media Lead",
-    image: "/SundarBOI.png",
+    image: "/Lead/Shrirang.jpg",
     badgeColor: "bg-red-400"
   },
   {
@@ -131,7 +131,7 @@ const teamMembersCoordinators = [
     id: "GDSC-JS20231",
     name: "Tanmay Joshi",
     role: "Web Coordinator",
-    image: "/SundarBOI.png",
+    image: "/Coordinators.png",
     badgeColor: "bg-green-400"
   },
   {
@@ -145,14 +145,14 @@ const teamMembersCoordinators = [
     id: "GDSC-JP20233",
     name: "Shipra Bhanja",
     role: "AIML Coordinator",
-    image: "/SundarBOI.png",
+    image: "Coordinators/Shipra.png",
     badgeColor: "bg-red-400"
   },
   {
     id: "GDSC-JP20234",
     name: "Ghanesh Dhadke",
     role: "Claude Coordinator",
-    image: "/SundarBOI.png",
+    image: "/Coordinators/Ganesh.png",
     badgeColor: "bg-red-400"
   },
   {
@@ -166,7 +166,7 @@ const teamMembersCoordinators = [
     id: "GDSC-JP20236",
     name: "Varun Nagote",
     role: "CP/DSA Coordinator",
-    image: "/SundarBOI.png",
+    image: "Coordinators/Varun.png",
     badgeColor: "bg-red-400"
   },
   {
@@ -185,23 +185,23 @@ const teamMembersCoordinators = [
   },
   {
     id: "GDSC-JP20239",
-    name: "Abhishiek Kumavat",
+    name: "Abhishek Kumavat",
     role: "CyberSecurity Coordinator",
-    image: "/SundarBOI.png",
+    image: "/Coordinators/Abhishekh.png",
     badgeColor: "bg-red-400"
   },
   {
     id: "GDSC-JP202310",
     name: "Atharva Jagtap",
     role: "Android Coordinator",
-    image: "/SundarBOI.png",
+    image: "/Coordinators/Atharva.jpg",
     badgeColor: "bg-red-400"
   },
   {
     id: "GDSC-JP202311",
     name: "Kaushal Abjowar",
     role: "Design Coordinator",
-    image: "/SundarBOI.png",
+    image: "/Coordinators/Kaushal.jpg",
     badgeColor: "bg-red-400"
   },
   {
