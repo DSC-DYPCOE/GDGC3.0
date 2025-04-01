@@ -78,7 +78,7 @@ const teamMembersLead = [
     id: "GDSC-JP2023510",
     name: "Charvi Humane",
     role: "Documentation/Management Lead",
-    image: "/SundarBOI.png",
+    image: "Lead/",
     badgeColor: "bg-red-400"
   },
   {
@@ -151,15 +151,15 @@ const teamMembersCoordinators = [
   {
     id: "GDSC-JP20234",
     name: "Ghanesh Dhadke",
-    role: "Claude Coordinator",
+    role: "Cloud Coordinator",
     image: "/Coordinators/Ganesh.png",
     badgeColor: "bg-red-400"
   },
   {
     id: "GDSC-JP20235",
     name: "Dhanesh Shingade",
-    role: "Claude Coordinator",
-    image: "/SundarBOI.png",
+    role: "Cloud Coordinator",
+    image: "/Coordinators/Dhanesh.png",
     badgeColor: "bg-red-400"
   },
   {
@@ -208,7 +208,7 @@ const teamMembersCoordinators = [
     id: "GDSC-JP202312",
     name: "Maithili Mahesh",
     role: "Design Coordinator",
-    image: "/SundarBOI.png",
+    image: "/Coordinators/Maithili.png",
     badgeColor: "bg-red-400"
   },
   {
@@ -229,7 +229,7 @@ const teamMembersCoordinators = [
     id: "GDSC-JP202315",
     name: "Manas Mishra",
     role: "PR Coordinator",
-    image: "/SundarBOI.png",
+    image: "/Coordinators/Manas.png",
     badgeColor: "bg-red-400"
   },
   {
